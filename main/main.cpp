@@ -3,7 +3,7 @@
 /*
     Rubber Band Library
     An audio time-stretching and pitch-shifting library.
-    Copyright 2007-2020 Particular Programs Ltd.
+    Copyright 2007-2021 Particular Programs Ltd.
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -35,7 +35,7 @@
 
 #include "system/sysutils.h"
 
-#ifdef __MSVC__
+#ifdef _MSC_VER
 #include "getopt/getopt.h"
 #else
 #include <getopt.h>
@@ -52,7 +52,7 @@ using namespace RubberBand;
 using RubberBand::gettimeofday;
 #endif
 
-#ifdef __MSVC__
+#ifdef _MSC_VER
 using RubberBand::usleep;
 #endif
 
@@ -199,7 +199,7 @@ int main(int argc, char **argv)
         cerr << endl;
 	cerr << "Rubber Band" << endl;
         cerr << "An audio time-stretching and pitch-shifting library and utility program." << endl;
-	cerr << "Copyright 2007-2020 Particular Programs Ltd." << endl;
+	cerr << "Copyright 2007-2021 Particular Programs Ltd." << endl;
         cerr << endl;
 	cerr << "   Usage: " << argv[0] << " [options] <infile.wav> <outfile.wav>" << endl;
         cerr << endl;
@@ -648,7 +648,10 @@ int main(int argc, char **argv)
         etv.tv_usec -= tv.tv_usec;
         
         double sec = double(etv.tv_sec) + (double(etv.tv_usec) / 1000000.0);
-        cerr << "elapsed time: " << sec << " sec, in frames/sec: " << countIn/sec << ", out frames/sec: " << countOut/sec << endl;
+        cerr << "elapsed time: " << sec
+             << " sec, in frames/sec: " << int64_t(round(countIn/sec))
+             << ", out frames/sec: " << int64_t(round(countOut/sec))
+             << endl;
     }
 
     RubberBand::Profiler::dump();

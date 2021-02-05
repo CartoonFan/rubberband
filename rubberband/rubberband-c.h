@@ -3,7 +3,7 @@
 /*
     Rubber Band Library
     An audio time-stretching and pitch-shifting library.
-    Copyright 2007-2020 Particular Programs Ltd.
+    Copyright 2007-2021 Particular Programs Ltd.
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -83,7 +83,7 @@ enum RubberBandOption {
     RubberBandOptionPitchHighConsistency = 0x04000000,
 
     RubberBandOptionChannelsApart        = 0x00000000,
-    RubberBandOptionChannelsTogether     = 0x10000000,
+    RubberBandOptionChannelsTogether     = 0x10000000
 };
 
 typedef int RubberBandOptions;

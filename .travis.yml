@@ -8,17 +8,7 @@ sudo:
   - false
 
 os:
-  - linux
   - osx
-
-addons:
-  apt:
-    packages:
-      - libsndfile-dev
-      - libsamplerate-dev
-      - libfftw3-dev
-      - vamp-plugin-sdk
-      - ladspa-sdk
 
 cache:
   directories:
@@ -33,5 +23,5 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" = "osx" ]] ; then brew update ; brew install libsndfile ; fi
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" = "osx" ]] ; then make -f Makefile.osx && make -f Makefile.ios clean && make -f Makefile.ios ; else ./configure && make ; fi
+  - if [[ "$TRAVIS_OS_NAME" = "osx" ]] ; then make -f Makefile.macos && make -f Makefile.ios clean && make -f Makefile.ios ; else ./configure && make ; fi
 

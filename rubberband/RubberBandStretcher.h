@@ -3,7 +3,7 @@
 /*
     Rubber Band Library
     An audio time-stretching and pitch-shifting library.
-    Copyright 2007-2020 Particular Programs Ltd.
+    Copyright 2007-2021 Particular Programs Ltd.
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -310,7 +310,7 @@ public:
         OptionPitchHighConsistency = 0x04000000,
 
         OptionChannelsApart        = 0x00000000,
-        OptionChannelsTogether     = 0x10000000,
+        OptionChannelsTogether     = 0x10000000
 
         // n.b. Options is int, so we must stop before 0x80000000
     };
